@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq.Expressions;
+
 
 namespace Console_homework_4_task2
 {
@@ -13,33 +15,75 @@ namespace Console_homework_4_task2
                 int w;
                 Console.Write("w = ");
 
-                if (Int32.TryParse(Console.ReadLine(), out w))
-                {
-
-                }
-                else
-                {
-                    Console.WriteLine("Некорректный ввод. Количество столбцов - целое неотрицательное число. Попробуйте снова.");
-                    Console.Write($"w = ");
-                    w = int.Parse(Console.ReadLine());
-
-                }
-
+                bool result_1 = Int32.TryParse(Console.ReadLine(), out w);
+                     if ((result_1 == true) && (w > 0))
+                     {
+                    
+                     }
+                    else
+                    {
+                        Console.WriteLine("Некорректный ввод. Ввести количество столбцов - целое положительное число. Попробуйте снова.");
+                        Console.Write($"w = ");
+                        w = int.Parse(Console.ReadLine());
+                    }
+               
 
                 Console.WriteLine("Введите количество строк матрицы:");
                 int h;
                 Console.Write("h = ");
 
-                if (Int32.TryParse(Console.ReadLine(), out h))
+                bool result_2 = Int32.TryParse(Console.ReadLine(), out h);
+                if ((result_2 == true) && (w > 0))
                 {
 
                 }
                 else
                 {
-                    Console.WriteLine("Некорректный ввод. Количество строк - целое неотрицательное число. Попробуйте снова.");
+                    Console.WriteLine("Некорректный ввод. Ввести количество столбцов - целое положительное число. Попробуйте снова.");
                     Console.Write($"h = ");
                     h = int.Parse(Console.ReadLine());
+                }
 
+                /*  while (true)
+                  {
+                      if ((Int32.TryParse(Console.ReadLine(), out h)) && (h > 0))
+                      {
+                          break;
+                      }
+                      else
+                      {
+                          Console.WriteLine("Некорректный ввод. Ввести количество строк - целое положительное число. Попробуйте снова.");
+                          Console.Write($"h = ");
+                          Console.ReadKey();
+                      }
+                  }*/
+
+                Console.WriteLine("Введите диапазон значений матрицы: ");
+
+                Console.Write("от ");
+                int x;
+                if (Int32.TryParse(Console.ReadLine(), out x))
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный ввод. Требуется ввести целое число (от -32 768 до 32 766). Попробуйте снова.");
+                    Console.Write("от ");
+                    x = int.Parse(Console.ReadLine());
+                }
+
+                Console.Write("до ");
+                int y;
+                if ((Int32.TryParse(Console.ReadLine(), out y)) && (y > x))
+                {
+
+                }
+                else
+                {
+                     Console.WriteLine("Некорректный ввод. Требуется ввести целое число y > x (от -32 768 до 32 766). Попробуйте снова.");
+                     Console.Write($"y = ");
+                    y = int.Parse(Console.ReadLine());
                 }
 
 
@@ -51,15 +95,16 @@ namespace Console_homework_4_task2
                 {
                     for (int j = 0; j < w; j++)
                     {
-                        matrix[i, j] = rand.Next();
+                        matrix[i, j] = rand.Next(x, (y + 1));
                     }
                 }
+               
 
                 for (int i = 0; i < h; ++i)
                 {
                     for (int j = 0; j < w; ++j)
                     {
-                        Console.Write("\t" + matrix[i, j]);
+                        Console.Write(String.Format("\t{0:0.##}", + matrix[i, j]));
                     }
                     Console.WriteLine();
                 }
@@ -138,7 +183,7 @@ namespace Console_homework_4_task2
                 {
                     Console.WriteLine("Ошибка. Введите режим сдвига из предложенных вариантов.");
 
-                   /* shift = int.Parse(Console.ReadLine());
+                    shift = int.Parse(Console.ReadLine());
                     if (shift == 0)
                     {
                         Console.WriteLine("Циклический сдвиг вправо.\nПолученная матрица:");
@@ -172,7 +217,7 @@ namespace Console_homework_4_task2
                             Console.WriteLine();
                         }
                         Console.WriteLine($"Осуществлён сдвиг вниз на n = {n} элементов.");
-                    }*/
+                    }
                 }
 
             }

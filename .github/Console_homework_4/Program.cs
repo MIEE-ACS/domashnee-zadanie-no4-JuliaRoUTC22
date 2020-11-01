@@ -4,7 +4,8 @@ namespace Console_homework_4
 {
     class Program
     {
-      static void Main(string[] args)
+
+            static void Main(string[] args)
       {
             try
             {
@@ -45,7 +46,7 @@ namespace Console_homework_4
                     }
 
                     /* 
-                      //с клавиатуры
+                      //ввод массива с клавиатуры
                      Console.WriteLine("Введите элементы массива:");
                       for (int i = 0; i < n; i++)
                       {
