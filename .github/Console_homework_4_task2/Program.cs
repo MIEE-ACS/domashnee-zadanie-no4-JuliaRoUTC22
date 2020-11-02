@@ -33,7 +33,7 @@ namespace Console_homework_4_task2
                 Console.Write("h = ");
 
                 bool result_2 = Int32.TryParse(Console.ReadLine(), out h);
-                if ((result_2 == true) && (w > 0))
+                if ((result_2 == true) && (h > 0))
                 {
 
                 }
